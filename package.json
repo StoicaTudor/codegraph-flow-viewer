@@ -4,19 +4,24 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently -k \"vite\" \"tsx server/index.ts\"",
+    "dev": "NODE_OPTIONS=--max-http-header-size=262144 concurrently -k \"vite\" \"tsx server/index.ts\"",
     "build": "tsc --noEmit && vite build",
-    "start": "tsx server/index.ts",
+    "start": "NODE_OPTIONS=--max-http-header-size=262144 tsx server/index.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@colbymchenry/codegraph": "latest"
+    "@colbymchenry/codegraph": "1.6.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
     "concurrently": "^9.0.0",
     "tsx": "^4.0.0",
-    "typescript": "^5.6.0",
-    "vite": "^6.0.0"
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2"
   }
 }
